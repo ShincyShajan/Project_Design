@@ -1,0 +1,266 @@
+body{
+  font: 15px/1.5 Arial, Helvetica,sans-serif;
+  padding:0;
+  margin:0;
+  background-color:#f4f4f4;
+}
+.error{
+  color:red;
+}
+.container{
+  width:80%;
+  margin:auto;
+  overflow:hidden;
+}
+.button_1{
+	margin-bottom:20px;
+	margin-top:20px;
+	height:30px;
+	background:red;
+	border:0;
+	padding-left: 20px;
+	padding-right:20px;
+	color:#ffffff;
+}
+.button_1:hover{
+	cursor:pointer;
+}
+
+ul{
+  margin:0;
+  padding:0;
+}
+
+header .highlight, 
+header .current a{
+  color:red;
+  font-weight:bold;
+}
+
+
+/* Header */
+header{
+  background:white;
+  color:black;
+  padding-top:20px;
+  min-height:60px;
+  border-bottom:red 3px solid;
+}
+header a{
+  color:black;
+  text-decoration:none;
+  text-transform: uppercase;
+  font-size:16px;
+}
+
+header li{
+  float:left;
+  display:inline;
+  padding: 0 20px 0 20px;
+}
+
+header #logo{
+  float:left;
+}
+
+header #logo h1{
+  margin:0;
+}
+
+header nav{
+  float:right;
+  margin-top:10px;
+}
+
+header a:hover{
+  color:#cccccc;
+  font-weight:bold;
+}
+
+/* BIG PICTURE */
+#bigpicture{
+  min-height:500px;
+  background:url('../image/blood_wanted.jpg') no-repeat;
+  background-size:100%;
+  opacity: 1.0;
+}
+
+#bigpicture:hover{
+	opacity: 0.5;
+}
+
+
+/* Need */
+#need{
+	background:#f4f4f4;
+	color:black;
+	padding-top:20px;
+	padding-bottom:20px;
+	min-height:200px;
+}
+
+#need h2{
+	color:red;
+}
+
+article#main{
+  float:left;
+  width:62%;
+}
+
+aside#side_img, aside#sidebar{
+  float:right;
+  width:32%;
+  margin-top:20px;
+  
+}
+aside#side_img img{
+	  border:#cecece 2px solid;
+}
+
+/* Boxes */
+#boxes{
+  margin-top:20px;
+  background-color:white;
+  min-height:500px;
+  padding:10px;
+}
+
+#boxes .box{
+  float:left;
+  text-align: center;
+  width:47%;
+  padding:10px;
+}
+#boxes h2{
+	font:30px/1.5 Arial, Helvetica,sans-serif;
+	text-align:center;
+	color:grey;
+	padding-bottom:10px;
+	border-bottom:#cecece 2px solid;
+}
+
+#boxes .box h3{
+	font: 20px/1.5 Arial, Helvetica,sans-serif;
+	background-color:red;
+	border:red 1px solid;
+	padding:5px;
+	color:white;
+}
+
+#boxes .box p{
+	font: 15px/1.5 Arial, Helvetica,sans-serif;
+	border:red 1px solid;
+	padding:5px;
+	margin-top:-20px;
+}
+
+/*Video*/
+#video{
+  margin-top:20px;
+  min-height:500px;
+  padding:10px;
+}
+
+#video h2{
+	font:30px/1.5 Arial, Helvetica,sans-serif;
+	text-align:center;
+	color:grey;
+	padding-bottom:10px;
+	border-bottom:#cecece 2px solid;
+}
+#video .vlink{
+	padding:50px;
+}
+
+/*Footer*/
+footer{
+  padding:10px;
+  color:white;
+  background-color:red;
+  text-align: center;
+}
+@media(max-width: 768px){
+  header #logo,
+  header nav,
+  header nav li,
+  article#main,
+  aside#side_img{
+    float:none;
+    text-align:center;
+    width:100%;
+  }
+  #bigpicture{
+  min-height:200px;
+  }
+  #boxes .box{
+  width:95%;
+
+	}
+orm #bankform, #contactform {
+    width: 100%;
+	}
+}
+  
+/*****************LOGIN PAGE*********************/
+#form{
+	margin-top:20px;
+	min-height:500px;
+	padding:10px;
+}
+
+#loginform, #signupform, #searchform{
+  width:50%;
+  margin:auto;
+  padding:20px;
+  background-color:white;
+}
+#bankform, #contactform{
+    width: 40%;
+    float: left;
+    margin: 10px;
+    padding: 15px;
+    background-color: white;
+}
+
+#loginform h2, #signupform h2,#bankform h2, #contactform h2 {
+	font:30px/1.5 Arial, Helvetica,sans-serif;
+	text-align:center;
+	color:grey;
+}
+
+input[type=text], input[type=password], input[type=email], input[type=file], .drop {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+ 
+}
+.new{
+	padding-left:50px;
+}
+
+@media(max-width: 768px){
+#bankform, #contactform {
+    width: 90%;
+	}
+	aside#sidebar {
+		 width:100%;
+	}
+}
+/********* About Us********/
+.dark{
+  padding:15px;
+  background:#35424a;
+  color:#ffffff;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+@media(max-width: 768px){
+
+	aside#sidebar {
+		 width:100%;
+	}
+}

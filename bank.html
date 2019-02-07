@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Blood Bank | Welcome</title>
+    <link rel="stylesheet" href="./css/style.css">
+	<style>
+#contactform{
+	display:none;
+}
+
+	</style>
+  </head>
+  <body>
+  
+ <header>
+      <div class="container">
+        <div id="logo">
+          <h1><span class="highlight">Blood</span> Bank</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+			<li><a href="donorReg.html">Donate</a></li>
+			<li><a href="search.html">Search</a></li>
+			<li  class="current"><a href="bank.html">Bank</a></li>
+            <li><a href="index.html">Logout</a></li>
+			
+          </ul>
+        </nav>
+      </div>
+    </header>
+	
+	<section id="form">
+		<div class="container">
+		<form action="bank.html">
+			<div id="bankform">
+			<h2> Blood Bank </h2>
+				<label class="align"><b>Availability of Blood Group</b></label><br>
+				<select class="drop" id="blood" name="blood">
+					<option value="sel">Select Blood Type</option>
+					<option value="Apos">A+</option>
+					<option value="Bpos">B+</option>
+					<option value="Opos">O+</option>
+					<option value="ABpos">AB+</option>
+					<option value="Aneg">A-</option>
+					<option value="Bneg">B-</option>
+					<option value="Oneg">O-</option>
+					<option value="ABneg">AB-</option>
+				</select><span class="error" id="errblood"></span><br>
+				
+					<input type="submit" class="button_1" name="submit" id="submit" value="Search">
+					<input type="submit" class="button_1" onclick="myFunction()" id="contactblood" value="Contact for Blood">
+					
+			</div>
+
+			<div id="contactform">
+			<h2> Contact for Blood </h2>
+				<label class="align"><b>Username</b></label><br>
+				<input type="text" placeholder="Enter Username" id="uname" required><span class="error" id="uname1"></span><br>
+				
+				<label class="align"><b>Blood Group</b></label><br>
+				<select class="drop" id="blood1" name="blood">
+					<option value="sel">Select Blood Type</option>
+					<option value="Apos">A+</option>
+					<option value="Bpos">B+</option>
+					<option value="Opos">O+</option>
+					<option value="ABpos">AB+</option>
+					<option value="Aneg">A-</option>
+					<option value="Bneg">B-</option>
+					<option value="Oneg">O-</option>
+					<option value="ABneg">AB-</option>
+				</select><span class="error" id="errblood1"></span><br>
+				
+				<label class="align"><b>Contact Number</b></label><br>
+				<input type="text" placeholder="Phone Number" id="contact" required><span class="error" id="contact1"></span><br>
+				
+				<input type="submit" class="button_1" name="submit" id="request" value="Request">
+			
+			</div>
+			<script>
+			function myFunction() {
+				var x = document.getElementById("contactform");
+					if (x.style.display === "block") {
+					x.style.display = "none";
+					} else {
+					x.style.display = "block";
+					}
+				}
+			</script>
+			</form>
+		</div>
+	</section>
+	
+	<footer>
+      <p>Blood Bank, Copyright &copy; 2019</p>
+    </footer>
+	
+</body>
+<script>
+	var btn=document.getElementById('submit');
+        btn.onclick=function(e){
+            var bool= check_validation();
+	    if(!bool){e.preventDefault();}
+        }
+        function check_validation(){
+	    
+            var blood=document.getElementById('blood');
+
+            if(blood.value=="sel")
+            {
+                document.getElementById("errblood").innerHTML="Please select a blood group";
+		return false;
+            } 
+	   	 
+          }
+	var btnreq = document.getElementById('request');
+	btnreq.onclick=function(e){
+            var bool= check_validation1();
+	    if(!bool){e.preventDefault();}
+        }
+        function check_validation1(){
+
+	    var uname=document.getElementById('uname');
+            var contact=document.getElementById('contact');
+            var blood1=document.getElementById('blood1');
+
+	    if(uname.checkValidity)
+            {
+                document.getElementById("uname1").innerHTML=uname.validationMessage;
+            } 
+	    if(contact.checkValidity)
+            {
+                document.getElementById("contact1").innerHTML=contact.validationMessage;
+            }
+            if(blood1.value=="sel")
+            {
+                document.getElementById("errblood1").innerHTML="Please select a blood group";
+		return false;
+            } 
+	   	 
+          }
+	</script>
+</html>

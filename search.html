@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Blood Bank | Welcome</title>
+    <link rel="stylesheet" href="./css/style.css">
+	<style>
+	img{
+  max-width:180px;
+}
+
+	</style>
+  </head>
+  <body>
+  
+ <header>
+      <div class="container">
+        <div id="logo">
+          <h1><span class="highlight">Blood</span> Bank</h1>
+        </div>
+        <nav>
+          <ul>
+            <li ><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+			<li><a href="donorReg.html">Donate</a></li>
+			<li class="current"><a href="search.html">Search</a></li>
+			<li><a href="bank.html">Bank</a></li>
+            <li><a href="index.html">Logout</a></li>
+			
+          </ul>
+        </nav>
+      </div>
+    </header>
+	<form>
+	<section id="form">
+		<div class="container">
+			<div id="searchform">
+				<label class="align"><b>Need of Donor's Blood Group</b></label><br>
+				<select class="drop" id="blood" name="blood">
+					<option value="sel">Select Blood Type</option>
+					<option value="Apos">A+</option>
+					<option value="Bpos">B+</option>
+					<option value="Opos">O+</option>
+					<option value="ABpos">AB+</option>
+					<option value="Aneg">A-</option>
+					<option value="Bneg">B-</option>
+					<option value="Oneg">O-</option>
+					<option value="ABneg">AB-</option>
+				</select><span class="error" id="blood1"></span><br>
+				
+					<input type="submit" class="button_1" name="submit" id="submit" value="Search">
+				
+			</div>
+		</div>
+	</section>
+	</form>
+	<footer>
+      <p>Blood Bank, Copyright &copy; 2019</p>
+    </footer>
+	
+</body>
+<script>
+		 var btn=document.getElementById('submit');
+        btn.onclick=function(e){
+            var bool= check_validation();
+	    if(!bool){e.preventDefault();}
+        }
+        function check_validation(){
+	    
+            var blood=document.getElementById('blood');
+
+            if(blood.value=="sel")
+            {
+                document.getElementById("blood1").innerHTML="Please select a blood group";
+		return false;
+            } 
+	   	 
+          }
+	</script>
+</html>

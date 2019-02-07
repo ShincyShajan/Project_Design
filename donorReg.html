@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Blood Bank | Welcome</title>
+    <link rel="stylesheet" href="./css/style.css">
+	<style>
+	img{
+  max-width:150px;
+}
+
+	</style>
+  </head>
+  <body>
+  
+ <header>
+      <div class="container">
+        <div id="logo">
+          <h1><span class="highlight">Blood</span> Bank</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+			<li  class="current"><a href="donorReg.html">Donate</a></li>
+			<li><a href="search.html">Search</a></li>
+			<li><a href="bank.html">Bank</a></li>
+            <li><a href="index.html">Logout</a></li>
+			
+          </ul>
+        </nav>
+      </div>
+    </header>
+	<form>
+	<section id="form">
+		<div class="container">
+			<div id="signupform">
+				<h2> Donor Registration </h2>
+				
+				<div class="form-group">
+					<label class="align"><b>User Id</b></label>
+					<input type="text" id="uid" readonly>
+				</div>
+				
+				<label class="align"><b>Username</b></label><br>
+				<input type="text" placeholder="Enter Username" id="uname" required><span class="error" id="uname1"></span><br>
+				
+				<label class="align"><b>Gender</b></label><br>
+				<select class="drop" id="gender" required>
+					<option value="gen">Select Gender</option>
+					<option value="male">Male</option>
+					<option value="female">Female</option>
+				</select><span class="error" id="gender1"></span><br>
+				
+				<label class="align"><b>Email-ID</b></label><br>
+				<input type="email" placeholder="Email" id="email" required> <span class="error" id="erremail"></span><br>
+		
+				<label class="align"><b>Contact Number</b></label><br>
+				<input type="text" placeholder="Phone Number" id="contact" pattern="[0-10]{10}" required><span class="error" id="contact1"></span><br>
+				
+				<label class="align"><b>Blood Group</b></label><br>
+				<select class="drop" id="blood" required>
+					<option value="sel">Select Blood Type</option>
+					<option value="Apos">A+</option>
+					<option value="Bpos">B+</option>
+					<option value="Opos">O+</option>
+					<option value="ABpos">AB+</option>
+					<option value="Aneg">A-</option>
+					<option value="Bneg">B-</option>
+					<option value="Oneg">O-</option>
+					<option value="ABneg">AB-</option>
+				</select><span class="error" id="blood1"></span><br>
+				
+				<label class="align"><b>City</b></label><br>
+				<input type="text" placeholder="Enter city" id="city" required><span class="error" id="errcity"></span><br>
+				
+				<label class="align"><b>Upload your Picture</b></label><br>
+				<input id="pic" type='file' onchange="readURL(this);" required/><span class="error" id="pic1"></span><br>
+				<img id="blah" src="http://placehold.it/180" alt="your image" />
+				<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+				<script>
+				 function readURL(input) {
+					console.log(input);
+					if (input.files && input.files[0]) {
+							var reader = new FileReader();
+							reader.onload = function (e) {
+								document.getElementById('blah').src = e.target.result;
+							};
+
+							reader.readAsDataURL(input.files[0]);
+					}
+				}
+				</script>
+				<br>
+				<input type="submit" class="button_1" name="submit" id="submit" value="Register">
+			</div>
+		</div>
+	</section>
+	</form>
+	<footer>
+      <p>Blood Bank, Copyright &copy; 2019</p>
+    </footer>
+
+</body>
+<script>
+		 var btn=document.getElementById('submit');
+        btn.onclick=function(e){
+            check_validation();
+        }
+        function check_validation(){
+	    var uid=document.getElementById('uid');
+            var uname=document.getElementById('uname');
+            var gender=document.getElementById('gender');
+	    var email=document.getElementById('email');
+            var contact=document.getElementById('contact');
+            var blood=document.getElementById('blood');
+	    var city=document.getElementById('city');
+	    var pic=document.getElementById('pic');	
+            
+            
+            if(uname.checkValidity)
+            {
+                document.getElementById("uname1").innerHTML=uname.validationMessage;
+            } 
+            if(gender.value=="gen")
+            {
+                document.getElementById("gender1").innerHTML="Please select the gender";
+            }
+            if(email.checkValidity)
+            {
+                document.getElementById("erremail").innerHTML=email.validationMessage;
+            } 
+	    if(contact.checkValidity)
+            {
+                document.getElementById("contact1").innerHTML=contact.validationMessage;
+            }
+            if(blood.value=="sel")
+            {
+                document.getElementById("blood1").innerHTML="Please select a blood group";
+            } 
+	    if(city.checkValidity)
+            {
+                document.getElementById("errcity").innerHTML=city.validationMessage;
+            }
+	    if(pic.checkValidity)
+            {
+                document.getElementById("pic1").innerHTML="Browse an image";
+            }  		 
+            }
+	</script>
+</html>
