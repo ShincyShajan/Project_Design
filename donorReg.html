@@ -39,11 +39,11 @@
 				
 				<div class="form-group">
 					<label class="align"><b>Donor Id</b></label>
-					<input type="text" name="did" id="did" value=" <?php echo $_SESSION["did"];?>" readonly>
+					<input type="text" name="did" id="did" readonly>
 				</div>
 				
 				<label class="align"><b>Donor Name</b></label><br>
-				<input type="text" name="dname" id="dname" value=" <?php echo $_SESSION["username"]; ?>" readonly ><br>
+				<input type="text" name="dname" id="dname" readonly ><br>
 				
 				<label class="align"><b>Gender</b></label><br>
 				<select class="drop" name="dgender" id="dgender" required>
@@ -56,7 +56,7 @@
 				</script>
 				
 				<label class="align"><b>Email-ID</b></label><br>
-				<input type="email" name="demail" id="demail" value=" <?php echo $_SESSION["email"]; ?> " readonly ><br>
+				<input type="email" name="demail" id="demail" readonly ><br>
 		
 				<label class="align"><b>Contact Number</b></label><br>
 				<input type="text" placeholder="Phone Number" name="dcontact" id="dcontact" pattern="[0-9]{10}" required><span class="error" id="contact1"></span><br>
@@ -75,7 +75,7 @@
 				</select><span class="error" id="blood1"></span><br>
 				
 				<label class="align"><b>City</b></label><br>
-				<input type="text" placeholder="Enter city" name="dcity" id="dcity" required><span class="error" id="errcity"></span><br>
+				<input type="text" placeholder="Enter city" name="dcity" id="dcity" required><span class="error" id="errcity" pattern="[a-zA-Z]*"></span><br>
 				
 				
 				<script>
