@@ -61,19 +61,31 @@
 </body>
 <script>
 		 var btn=document.getElementById('submit');
+		
         btn.onclick=function(e){
             var bool= check_validation();
-	    if(!bool){e.preventDefault();}
+	    if(!bool){
+			e.preventDefault();}
         }
         function check_validation(){
 	    
             var blood=document.getElementById('blood');
-
+			var check= 1;
+			
             if(blood.value=="sel")
             {
                 document.getElementById("blood1").innerHTML="Please select a blood group";
-		return false;
+				return false;
+				if(blood.validationMessage.toString().length!=0)
+				check=0;
             } 
+			if(check==0)
+			{
+			return false;
+			}
+			else{
+			return true;
+			}	
 	   	 
           }
 	</script>
