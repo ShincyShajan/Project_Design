@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Blood Bank | Welcome</title>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+ <form>
+  <header>
+      <div class="container">
+        <div id="logo">
+          <h1><span class="highlight">Blood</span> Bank</h1>
+        </div>
+        <nav>
+          <ul>
+            <li ><a href="admin_home.html">Home</a></li>
+            <li ><a href="admin_donor.html">DONOR LIST</a></li>
+			<li class="current"><a href="admin_transaction.html">TRANSACTION</a></li>
+			<li ><a href="admin_bank.html">BANK</a></li>
+			<li ><a href="admin_enquiry.html">ENQUIRY</a></li>
+            <li><a href="index.html">Logout</a></li>
+			
+          </ul>
+        </nav>
+      </div>
+    </header>
+	<section id="form">
+		<div class="container">
+			<div id="signupform">
+				<h2> Blood Transaction </h2>
+				<label class="align"><b>Entry Type</b></label><br>
+				<select class="drop" name="type" id="type" required>
+					<option value="sel">Select Blood In/Out</option>
+					<option value="in">Blood IN</option>
+					<option value="out">Blood Out</option>
+				</select><span class="error" id="err1"></span><br>
+				<script>
+				document.getElementById("type").focus();
+				</script>
+				
+				<label class="align"><b>Order No</b></label><br>
+				<input type="text" name="ordno" id="ordno" readonly>
+				
+				<label class="align"><b>User-Id</b></label><br>
+				<input type="text" placeholder="Enter User-Id" name="uid" id="uid" required><span class="error" id="err2"></span><br>
+				
+				<label class="align"><b>Contact No</b></label><br>
+				<input type="text" placeholder="Enter Contact No" name="contact" id="contact" pattern="[0-9]{10}" required><span class="error" id="err3"></span><br>
+				
+				<label class="align"><b>Blood Group</b></label><br>
+				<select class="drop" name="tblood" id="tblood" required>
+					<option value="sel">Select Blood Group</option>
+					<option value="A+">A+</option>
+					<option value="B+">B+</option>
+					<option value="O+">O+</option>
+					<option value="AB+">AB+</option>
+					<option value="A-">A-</option>
+					<option value="B-">B-</option>
+					<option value="O-">O-</option>
+					<option value="AB-">AB-</option>
+				</select><span class="error" id="err4"></span><br>
+			
+				<label class="align"><b>Amount Per</b></label><br>
+				<input type="text" placeholder="Enter Amount Per" name="amt" id="amt"  pattern="[0-9]*" required><span class="error" id="err5"></span><br>
+				
+				<label class="align"><b>Quantity</b></label><br>
+				<input type="text" placeholder="Enter Quantity" name="qty" id="qty"  pattern="[0-9]*" required ><span class="error" id="err6"></span><br>
+        
+				<label class="align"><b>Total Cost</b></label><br>
+				<input type="text" name="cost" id="cost" readonly><br>
+				
+				<input type="submit" class="button_1" name="trans" id="trans" value="Submit" style="display:none"> 
+				<input type="button" class="button_1" name="cal" id="cal" value="calulate" formnovalidate> 
+			</div>
+		</div>
+	</section>
+	
+	<footer>
+      <p>Blood Bank, Copyright &copy; 2019</p>
+    </footer>
+	<script>
+		var btn=document.getElementById('trans');
+        btn.onclick=function(e){
+            var bool= check_validation();
+	    if(!bool){
+			e.preventDefault();
+			}
+        }
+        function check_validation(){
+            var type=document.getElementById('type');
+			var uid = document.getElementById('uid');
+            var contact=document.getElementById('contact');
+            var tblood=document.getElementById('tblood');
+			var amt=document.getElementById('amt');
+			var qty=document.getElementById('qty');
+			
+			var check=1;
+            
+			if(type.value=="sel")
+            {
+                document.getElementById("err1").innerHTML="Please select a blood group";
+				if(type.validationMessage.toString().length!=0)
+				check=0;
+            } 
+			else{ document.getElementById("err1").innerHTML=" ";}
+            if(uid.checkValidity)
+            {
+                document.getElementById("err2").innerHTML=uid.validationMessage;
+				if(uid.validationMessage.toString().length!=0)
+				check=0;
+            }
+			
+			if (contact.checkValidity) {
+                document.getElementById("err3").innerHTML = contact.validationMessage;
+				if(contact.validationMessage.toString().length!=0)
+				check=0;
+            }
+			if(tblood.value=="sel")
+            {
+                document.getElementById("err4").innerHTML="Please select a blood group";
+				if(tblood.validationMessage.toString().length!=0)
+				check=0;
+            } 
+			else{document.getElementById("err4").innerHTML=" ";}
+            if(amt.checkValidity)
+            {
+                document.getElementById("err5").innerHTML=amt.validationMessage;
+				if(amt.validationMessage.toString().length!=0)
+				check=0;
+            }  
+			if(qty.checkValidity)
+            {
+                document.getElementById("err6").innerHTML=qty.validationMessage;
+				if(qty.validationMessage.toString().length!=0)
+				check=0;
+            } 			
+			if(check==0)
+			{
+			return false;
+			}
+			else{
+			return true;
+			}
+		}
+			
+			var btn1=document.getElementById('cal');
+            btn1.onclick=function(e){
+			var amt = parseInt(document.getElementById('amt').value);
+            var qty = parseInt(document.getElementById('qty').value);
+		
+			var tot = amt*qty;
+			if(tot)
+			{
+				document.getElementById("cost").value=tot;
+				document.getElementById("cal").style.display="none";
+				document.getElementById("trans").style.display="block";
+				check_validation();
+			}
+			else{
+				alert(" Field Empty");
+				e.preventDefault();
+			}
+        }
+		
+	</script>
+	</form>
+</body>
+
+</html>
