@@ -58,7 +58,7 @@
 			<div id="contactform">
 			<h2> Contact for Blood </h2>
 				<label class="align"><b>Username</b></label><br>
-				<input type="text" placeholder="Enter Username" id="uname" required><span class="error" id="uname1"></span><br>
+				<input type="text" placeholder="Enter Username" id="uname" required><span class="error" id="uname1" pattern="[a-zA-Z]*"></span><br>
 				
 				<label class="align"><b>Blood Group</b></label><br>
 				<select class="drop" id="blood1" name="blood">
@@ -74,7 +74,7 @@
 				</select><span class="error" id="errblood1"></span><br>
 				
 				<label class="align"><b>Contact Number</b></label><br>
-				<input type="text" placeholder="Phone Number" id="contact" required><span class="error" id="contact1"></span><br>
+				<input type="text" placeholder="Phone Number" id="contact" required><span class="error" id="contact1" pattern="[0-9]{10}"></span><br>
 				
 				<input type="submit" class="button_1" name="submit" id="request" value="Request">
 			
