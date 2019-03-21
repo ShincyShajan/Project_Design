@@ -5,8 +5,8 @@
     <title>Blood Bank | Welcome</title>
     <link rel="stylesheet" href="./css/style.css">
   </head>
-  <body>
-  
+ <body>
+  <form novalidate>
   <header>
       <div class="container">
         <div id="logo">
@@ -25,18 +25,33 @@
 	<section id="form">
 		<div class="container">
 			<div id="signupform">
+				<input type="text" name="uid" id="uid" value=" <?php 
+				$rs3 =mysqli_query($conn,"SELECT * FROM signup ORDER BY Serial DESC LIMIT 1");
+						while($row3 = mysqli_fetch_assoc($rs3)) 
+					{					
+						$dd=$row3['User_Id']; 
+						$dd=substr($dd,5,6);
+						$dd=(int)$dd+1;            
+						echo $_SESSION['did']="BBD00".$dd;
+					} 
+					?> " style="display:none"><br>
+			
 				<h2> SignUp Form </h2>
-				
 				<label class="align"><b>Username</b></label><br>
-				<input type="text" placeholder="Enter Username" id="uname" required><span class="error" id="err1"></span><br>
+				<input type="text" placeholder="Enter Username in alphabets" name="uname" id="uname" pattern="[a-zA-Z]*" required><span class="error" id="err1"></span><br>
+			
+				<label class="align"><b>Email-Id</b></label><br>
+				<input type="email" placeholder="Enter Email-Id" name="email" id="email" required><span class="error" id="err4"></span><br>
+			
 			
 				<label class="align"><b>Password</b></label><br>
-				<input type="password" placeholder="Enter Password" id="psw" required><span class="error" id="err2"></span><br>
+				<input type="password" placeholder="Enter Password" name="psw" id="psw" required><span class="error" id="err2"></span><br>
         
 				<label class="align"><b>Confirm Password</b></label><br>
-				<input type="password" placeholder="Re-Enter Password" id="conpsw" required><span class="error" id="err3"></span><br>
+				<input type="password" placeholder="Re-Enter Password" name="conpsw" id="conpsw" required><span class="error" id="err3"></span><br>
 				
-				<input type="submit" class="button_1" name="submit" id="submit" value="Signup"> 
+				<input type="submit" class="button_1" name="submit" name="signup" id="signup" value="Signup"> 
+				
 			</div>
 		</div>
 	</section>
@@ -44,30 +59,83 @@
 	<footer>
       <p>Blood Bank, Copyright &copy; 2019</p>
     </footer>
-	
-</body>
-<script>
-		 var btn=document.getElementById('submit');
+	<script>
+		var btn=document.getElementById('signup');
         btn.onclick=function(e){
-            check_validation();
+           var s=check_validation();
+			if(s==false)
+			{
+			e.preventDefault(); 
+			}
+			var l = checkPasswordValidity();
+			if (l==false) {
+			e.preventDefault();
+			}
+			
+			
         }
         function check_validation(){
             var uname=document.getElementById('uname');
+			var email = document.getElementById('email');
             var pass=document.getElementById('psw');
             var conpass=document.getElementById('conpsw');
+			var check=1;
             
             if(uname.checkValidity)
             {
                 document.getElementById("err1").innerHTML=uname.validationMessage;
+				if(uname.validationMessage.toString().length!=0)
+				check=0;
             }
+			
+			if (email.checkValidity) {
+                document.getElementById("err4").innerHTML = email.validationMessage;
+				if(email.validationMessage.toString().length!=0)
+				check=0;
+            }
+			
             if(pass.checkValidity)
             {
                 document.getElementById("err2").innerHTML=pass.validationMessage;
+				if(pass.validationMessage.toString().length!=0)
+				check=0;
             } 
-
-	   if(conpass.checkValidity)
+			
+			if(conpass.checkValidity)
             {
                 document.getElementById("err3").innerHTML=conpass.validationMessage;
-            }             }
+				if(conpass.validationMessage.toString().length!=0)
+				check=0;
+            }   
+			if(check==0)
+			{
+			return false;
+			}
+			else{
+			return true;
+			}
+			
+			}
+			
+			function checkPasswordValidity() {
+            var p = document.getElementById('psw');
+            var cp = document.getElementById('conpsw');
+            if (p.value == cp.value) {
+                
+                return true;
+            }
+			else
+			{
+			alert('Password is not matching');
+			document.getElementById('psw').value="";
+			document.getElementById('conpsw').value="";
+			return false;
+			}
+            
+			
+		}
 	</script>
+	</form>
+</body>
+
 </html>
