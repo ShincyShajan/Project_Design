@@ -107,13 +107,21 @@
         function check_validation(){
 	    
             var blood=document.getElementById('blood');
-
+			check=1;
             if(blood.value=="sel")
             {
                 document.getElementById("errblood").innerHTML="Please select a blood group";
-		return false;
+				return false;
+				if(blood.validationMessage.toString().length!=0)
+				check=0;
             } 
-	   	 
+			if(check==0)
+			{
+			return false;
+			}
+			else{
+			return true;
+			}	
           }
 	var btnreq = document.getElementById('request');
 	btnreq.onclick=function(e){
@@ -125,21 +133,31 @@
 	    var uname=document.getElementById('uname');
             var contact=document.getElementById('contact');
             var blood1=document.getElementById('blood1');
-
-	    if(uname.checkValidity)
-            {
-                document.getElementById("uname1").innerHTML=uname.validationMessage;
-            } 
+			var check=1;
 	    if(contact.checkValidity)
             {
                 document.getElementById("contact1").innerHTML=contact.validationMessage;
+				if(contact.validationMessage.toString().length!=0)
+				check=0;
             }
             if(blood1.value=="sel")
             {
                 document.getElementById("errblood1").innerHTML="Please select a blood group";
-		return false;
+				return false;
+				if(blood1.validationMessage.toString().length!=0)
+				check=0;
             } 
+			if(check==0)
+			{
+			return false;
+			}
+			else{
+			return true;
+			}	
 	   	 
           }
 	</script>
+	</form>
+</body>
+
 </html>
