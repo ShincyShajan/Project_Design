@@ -208,7 +208,12 @@ orm #bankform, #contactform {
 	min-height:500px;
 	padding:10px;
 }
-
+table, th, td
+{
+	text-align:center;
+	border: 1px solid black;
+  border-collapse: collapse;
+}
 #loginform, #signupform, #searchform{
   width:50%;
   margin:auto;
