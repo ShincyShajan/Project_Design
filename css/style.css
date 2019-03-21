@@ -205,8 +205,19 @@ orm #bankform, #contactform {
 /*****************LOGIN PAGE*********************/
 #form{
 	margin-top:20px;
-	min-height:500px;
+	min-height:430px;
 	padding:10px;
+}
+#ftable, #sform{
+	margin-top:0px;
+	min-height:215px;
+	padding:10px;
+}
+#searchform , table{
+  width:50%;
+  margin:auto;
+  padding:20px;
+  background-color:white;
 }
 table, th, td
 {
@@ -214,7 +225,7 @@ table, th, td
 	border: 1px solid black;
   border-collapse: collapse;
 }
-#loginform, #signupform, #searchform{
+#loginform, #signupform, #searchform , table{
   width:50%;
   margin:auto;
   padding:20px;
